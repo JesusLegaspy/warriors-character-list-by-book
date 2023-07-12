@@ -1,7 +1,7 @@
 import CharacterShow from './CharacterShow';
 
 const CharacterList = ({ characterList }) => {
-  const characters = characterList.map(character => {
+  const characters = characterList?.map(character => {
     return <CharacterShow key={character.id} character={character} />
   });
 

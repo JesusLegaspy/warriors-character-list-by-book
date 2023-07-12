@@ -12,7 +12,7 @@ const BookList = ({ books }) => {
     setShowId(null);
   }
 
-  const bookList = books.map(book => {
+  const bookList = books?.map(book => {
     if (showId && book.id !== showId) return;
     return <BookShow key={book.id} book={book} onClick={handleClick} onBack={handleBack} isSelected={showId === book.id} />;
   });
