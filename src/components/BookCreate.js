@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 const BookCreate = ({ onCreateBook }) => {
   const [title, setTitle] = useState('');
@@ -23,7 +22,7 @@ const BookCreate = ({ onCreateBook }) => {
           <input id='title' type="text" value={title} onChange={handleChange} />
           <label htmlFor="image">Image src</label>
           <input id="image" type="url" />
-          <button className="bg-slate-500 py-2 px-4">Add a book</button>
+          <button className="bg-slate-500 py-2 px-4 hover:bg-slate-400 active:bg-slate-600">Add a book</button>
         </form>
       </div>
     </div>

@@ -24,13 +24,21 @@ const App = () => {
     setBooks([...books, response.data]);
   };
 
-  const deleteBook = async (id) => {
+  const editBookById = async (id, data) => {
+    const response = await axios.patch(`http://localhost:3001/books/${id}`, data);
+    setBooks(books.map(book => {
+      if (book.id === id) return ({ ...book, ...response.data });
+      return book;
+    }));
+  }
+
+  const deleteBookById = async (id) => {
     await axios.delete(`http://localhost:3001/books/${id}`);
     setBooks(books.filter((book) => book.id !== id));
   };
 
   return <div>
-    <BookList books={books} onDeleteBook={deleteBook} />
+    <BookList books={books} onDeleteBook={deleteBookById} onEditBook={editBookById} />
     <BookCreate onCreateBook={onCreateBook} />
   </div>
 };

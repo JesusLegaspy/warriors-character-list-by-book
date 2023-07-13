@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookShow from './BookShow';
 
-const BookList = ({ books, onDeleteBook }) => {
+const BookList = ({ books, onDeleteBook, onEditBook }) => {
   const [showId, setShowId] = useState(null);
 
   const handleClick = (id) => {
@@ -14,7 +14,15 @@ const BookList = ({ books, onDeleteBook }) => {
 
   const bookList = books?.map(book => {
     if (showId && book.id !== showId) return;
-    return <BookShow key={book.id} book={book} onClick={handleClick} onBack={handleBack} onDeleteBook={onDeleteBook} isSelected={showId === book.id} />;
+    return <BookShow
+      key={book.id}
+      book={book}
+      onClick={handleClick}
+      onBack={handleBack}
+      onDeleteBook={onDeleteBook}
+      isSelected={showId === book.id}
+      onEditBook={onEditBook}
+    />;
   });
 
   return (

@@ -24,6 +24,16 @@ content-type: application/json
 
 ###
 
+# Update a book
+PATCH {{host}}/books/1 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Into the Wilds"
+}
+
+###
+
 # Delete a book
 DELETE {{host}}/books/3 HTTP/1.1
 
