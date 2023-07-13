@@ -1,21 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 
-const BookCreate = () => {
+const BookCreate = ({ onCreateBook }) => {
   const [title, setTitle] = useState('');
 
-  const createBook = async () => {
-    const data = {
-      "title": "Alderheart and the chamber of secrets",
-      "image": "",
-      "character": [
-        1,
-        2
-      ]
-    }
-    const response = await axios.post('http://localhost:3001/books', data)
-    console.log(response);
-  };
+
 
   const handleChange = (event) => {
     setTitle(event.target.value)
@@ -23,8 +12,7 @@ const BookCreate = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(title);
-    createBook();
+    onCreateBook(title);
   };
 
   return (

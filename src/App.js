@@ -15,9 +15,23 @@ const App = () => {
     fetchBooks()
   }, []);
 
+  const onCreateBook = async (title) => {
+    const data = {
+      "title": title,
+      "image": "",
+    }
+    const response = await axios.post('http://localhost:3001/books', data)
+    setBooks([...books, response.data]);
+  };
+
+  const deleteBook = async (id) => {
+    await axios.delete(`http://localhost:3001/books/${id}`);
+    setBooks(books.filter((book) => book.id !== id));
+  };
+
   return <div>
-    <BookList books={books} />
-    <BookCreate />
+    <BookList books={books} onDeleteBook={deleteBook} />
+    <BookCreate onCreateBook={onCreateBook} />
   </div>
 };
 

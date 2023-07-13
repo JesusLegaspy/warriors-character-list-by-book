@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookShow from './BookShow';
 
-const BookList = ({ books }) => {
+const BookList = ({ books, onDeleteBook }) => {
   const [showId, setShowId] = useState(null);
 
   const handleClick = (id) => {
@@ -14,11 +14,11 @@ const BookList = ({ books }) => {
 
   const bookList = books?.map(book => {
     if (showId && book.id !== showId) return;
-    return <BookShow key={book.id} book={book} onClick={handleClick} onBack={handleBack} isSelected={showId === book.id} />;
+    return <BookShow key={book.id} book={book} onClick={handleClick} onBack={handleBack} onDeleteBook={onDeleteBook} isSelected={showId === book.id} />;
   });
 
   return (
-    <div className='flex justify-center'>
+    <div className='container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
       {bookList}
     </div>
   );
