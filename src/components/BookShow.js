@@ -1,11 +1,13 @@
 // import BookEdit from './BookEdit';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import CharacterList from './CharacterList';
 import BookEdit from './BookEdit';
 import { HiXCircle, HiPencilSquare } from 'react-icons/hi2';
+import bookContext from '../context/books';
 
-const BookShow = ({ book, onClick, isSelected, onBack, onDeleteBook, onEditBook }) => {
+const BookShow = ({ book, onClick, isSelected, onBack }) => {
   const [isEdit, setIsEdit] = useState(false);
+  const { deleteBookById } = useContext(bookContext);
 
   const back = isSelected
     ? <button className='border bg-blue-300 px-3' onClick={onBack}>Back</button>
@@ -32,7 +34,7 @@ const BookShow = ({ book, onClick, isSelected, onBack, onDeleteBook, onEditBook 
         </button>
         <button
           className='absolute top-2 right-5 text-2xl hover:text-gray-400'
-          onClick={() => onDeleteBook(book.id)}
+          onClick={() => deleteBookById(book.id)}
         >
           <HiXCircle />
         </button>
@@ -40,7 +42,7 @@ const BookShow = ({ book, onClick, isSelected, onBack, onDeleteBook, onEditBook 
           <img src={`https://picsum.photos/seed/${book.id}/300/200`} alt="books" />
         </div>
       </div>
-      {isEdit ? <BookEdit book={book} onEditBook={onEditBook} onSubmit={handleSubmit} /> : null}
+      {isEdit ? <BookEdit book={book} onSubmit={handleSubmit} /> : null}
       {characters}
     </div >
   );

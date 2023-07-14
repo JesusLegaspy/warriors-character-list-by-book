@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import BookShow from './BookShow';
+import bookContext from '../context/books';
 
-const BookList = ({ books, onDeleteBook, onEditBook }) => {
+const BookList = () => {
   const [showId, setShowId] = useState(null);
+  const { books } = useContext(bookContext);
 
   const handleClick = (id) => {
     setShowId(id);
@@ -19,9 +21,7 @@ const BookList = ({ books, onDeleteBook, onEditBook }) => {
       book={book}
       onClick={handleClick}
       onBack={handleBack}
-      onDeleteBook={onDeleteBook}
       isSelected={showId === book.id}
-      onEditBook={onEditBook}
     />;
   });
 
