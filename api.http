@@ -9,6 +9,11 @@ GET {{host}}/books HTTP/1.1
 
 ###
 
+# Get a book
+GET {{host}}/books/1?_embed=characters HTTP/1.1
+
+###
+
 # Create a book
 POST {{host}}/books HTTP/1.1
 content-type: application/json

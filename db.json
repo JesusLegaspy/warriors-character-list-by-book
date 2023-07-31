@@ -4,24 +4,15 @@
       "id": 1,
       "title": "Into the Wilds",
       "image": "",
-      "character": [
+      "characters": [
         1,
         2
       ]
     },
     {
-      "id": 2,
-      "title": "Skyclan's Quest",
-      "image": "",
-      "character": [
-        3,
-        4
-      ]
-    },
-    {
       "title": "Alderheart and the chamber of secrets",
       "image": "",
-      "character": [
+      "characters": [
         1,
         2
       ],
@@ -41,9 +32,14 @@
       "title": "Testing",
       "image": "",
       "id": 8
+    },
+    {
+      "title": "Rover",
+      "image": "",
+      "id": 9
     }
   ],
-  "character": [
+  "characters": [
     {
       "id": 1,
       "name": "Firestar",

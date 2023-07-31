@@ -1,6 +1,5 @@
 // import BookEdit from './BookEdit';
 import { useState, useContext } from 'react';
-import CharacterList from './CharacterList';
 import BookEdit from './BookEdit';
 import { HiXCircle, HiPencilSquare } from 'react-icons/hi2';
 import bookContext from '../context/books';
@@ -11,10 +10,6 @@ const BookShow = ({ book, onClick, isSelected, onBack }) => {
 
   const back = isSelected
     ? <button className='border bg-blue-300 px-3' onClick={onBack}>Back</button>
-    : '';
-
-  const characters = isSelected
-    ? <CharacterList characterList={book.characters} />
     : '';
 
   const handleSubmit = () => {
@@ -43,7 +38,6 @@ const BookShow = ({ book, onClick, isSelected, onBack }) => {
         </div>
       </div>
       {isEdit ? <BookEdit book={book} onSubmit={handleSubmit} /> : null}
-      {characters}
     </div >
   );
 };

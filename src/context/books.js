@@ -5,6 +5,7 @@ const bookContext = createContext(null);
 
 const MyProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
+  const [bookPage, setBookPage] = useState('');
 
   const fetchBooks = async () => {
     const books = await axios.get('http://localhost:3001/books');
@@ -34,7 +35,7 @@ const MyProvider = ({ children }) => {
   };
 
   return (
-    <bookContext.Provider value={{ books, fetchBooks, createBook, editBookById, deleteBookById }}>
+    <bookContext.Provider value={{ books, fetchBooks, createBook, editBookById, deleteBookById, setBookPage, bookPage }}>
       {children}
     </bookContext.Provider>
   );

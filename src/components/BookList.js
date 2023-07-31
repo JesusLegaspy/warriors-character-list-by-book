@@ -4,10 +4,10 @@ import bookContext from '../context/books';
 
 const BookList = () => {
   const [showId, setShowId] = useState(null);
-  const { books } = useContext(bookContext);
+  const { books, setBookPage } = useContext(bookContext);
 
-  const handleClick = (id) => {
-    setShowId(id);
+  const handleClick = (book) => {
+    setBookPage(book);
   };
 
   const handleBack = () => {
@@ -19,9 +19,8 @@ const BookList = () => {
     return <BookShow
       key={book.id}
       book={book}
-      onClick={handleClick}
+      onClick={() => handleClick(book)}
       onBack={handleBack}
-      isSelected={showId === book.id}
     />;
   });
 
