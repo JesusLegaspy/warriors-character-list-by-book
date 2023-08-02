@@ -1,4 +1,3 @@
-// import BookEdit from './BookEdit';
 import { useState, useContext } from 'react';
 import BookEdit from './BookEdit';
 import { HiXCircle, HiPencilSquare } from 'react-icons/hi2';

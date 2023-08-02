@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const bookContext = createContext(null);
 
-const MyProvider = ({ children }) => {
+const MyBookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [bookPage, setBookPage] = useState('');
 
@@ -41,5 +41,5 @@ const MyProvider = ({ children }) => {
   );
 }
 
-export { MyProvider as MyProviders };
+export { MyBookProvider };
 export default bookContext;
