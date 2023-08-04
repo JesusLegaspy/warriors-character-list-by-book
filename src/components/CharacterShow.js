@@ -1,13 +1,18 @@
 import CharacterEdit from './CharacterEdit';
 import { HiXCircle, HiPencilSquare } from 'react-icons/hi2';
+import myCharacterContext from '../context/characters';
+import { useContext, useState } from 'react';
 
 const CharacterShow = ({ character }) => {
+  const { deleteCharacterById } = useContext(myCharacterContext);
+  const [showEdit, setShowEdit] = useState(false);
+
   const handleClickEdit = () => {
-    console.log('edit');
+    setShowEdit(!showEdit);
   }
 
   const handleClickDelete = () => {
-    console.log('delete');
+    deleteCharacterById(character.id);
   }
 
   return (
@@ -24,7 +29,7 @@ const CharacterShow = ({ character }) => {
         <img src={`https://picsum.photos/seed/${character.id * 10}/300/200`} alt="books" />
       </div>
       {character.description}
-      <CharacterEdit />
+      {showEdit && (<CharacterEdit character={character} setShowEdit={setShowEdit} />)}
     </div>
   );
 };

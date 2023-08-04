@@ -43,7 +43,7 @@
     {
       "id": 1,
       "name": "Firestar",
-      "description": "Orange red tom",
+      "description": "Grey orange wolf with a black nose and white paws",
       "image": ""
     },
     {
@@ -65,7 +65,7 @@
       "image": ""
     },
     {
-      "name": "characterName",
+      "name": "mouse",
       "description": "description",
       "image": "imageUrl",
       "id": 5

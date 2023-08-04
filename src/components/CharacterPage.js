@@ -4,12 +4,11 @@ import CharacterList from "./CharacterList";
 import myCharacterContext from '../context/characters';
 
 const CharacterPage = ({ book }) => {
-  const [characters, setCharacters] = useState();
   const { setBookPage } = useContext(bookContext);
   const { fetchCharactersByIds } = useContext(myCharacterContext);
 
   useEffect(() => {
-    fetchCharactersByIds(book.characters).then(allCharacters => { setCharacters(allCharacters) });
+    fetchCharactersByIds(book.characters);
   }, []);
 
   const handleClick = () => {
@@ -20,7 +19,7 @@ const CharacterPage = ({ book }) => {
     <div>
       <button onClick={handleClick}>back</button>
       <h1>{book.title}</h1>
-      <CharacterList characterList={characters} />
+      <CharacterList />
     </div>);
 }
 
