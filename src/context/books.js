@@ -35,7 +35,15 @@ const MyBookProvider = ({ children }) => {
   };
 
   return (
-    <bookContext.Provider value={{ books, fetchBooks, createBook, editBookById, deleteBookById, setBookPage, bookPage }}>
+    <bookContext.Provider value={{
+      books,
+      fetchBooks,
+      createBook,
+      editBookById,
+      deleteBookById,
+      setBookPage,
+      bookPage
+    }}>
       {children}
     </bookContext.Provider>
   );

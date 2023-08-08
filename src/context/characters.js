@@ -1,9 +1,11 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import bookContext from "./books";
 
 const myCharacterContext = createContext();
 
 const MyCharacterProvider = ({ children }) => {
+  const { editBookById } = useContext(bookContext);
   const [characters, setCharacters] = useState([]);
 
   const fetchCharactersByIds = async (ids) => {
@@ -14,13 +16,15 @@ const MyCharacterProvider = ({ children }) => {
     else setCharacters([]);
   }
 
-  const createCharacter = async (name, description, imageUrl) => {
-    const character = await axios.post('http://localhost:3001/characters/', {
+  const createCharacter = async (bookId, name, description, imageUrl = '') => {
+    const newCharacter = await axios.post('http://localhost:3001/characters/', {
       name,
       description,
       image: imageUrl,
-    });
-    setCharacters([...characters, character.data]);
+    }).then(data => data.data);
+    const currentCharactersIds = await axios.get(`http://localhost:3001/books/${bookId}`).then(data => data.data.characters);
+    await editBookById(bookId, { characters: [...currentCharactersIds, newCharacter.id] });
+    setCharacters([...characters, newCharacter]);
   }
 
   const editCharacterById = async (id, data) => {

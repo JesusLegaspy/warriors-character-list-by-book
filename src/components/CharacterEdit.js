@@ -29,13 +29,19 @@ const CharacterEdit = ({ character, setShowEdit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" onChange={handleName} value={name} />
-        <label htmlFor="description">Description</label>
-        <input id="description" type="text" onChange={handleDescription} value={description} />
-        <label htmlFor="imageUrl">Image Url</label>
-        <input id='imageUrl' type="text" onChange={handleImage} value={imageUrl} />
-        <button className="bg-green-200 hover:bg-green-100 active:bg-green-300 py-2 px-4">Submit</button>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" onChange={handleName} value={name} />
+        </div>
+        <div>
+          <label htmlFor="description">Description</label>
+          <input id="description" type="text" onChange={handleDescription} value={description} />
+        </div>
+        <div>
+          <label htmlFor="imageUrl">Image Url</label>
+          <input id='imageUrl' type="text" onChange={handleImage} value={imageUrl} />
+        </div>
+        <button className="bg-green-200 hover:bg-green-100 active:bg-green-300 py-2 px-4">Edit</button>
       </form>
     </div>
   );

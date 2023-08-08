@@ -6,7 +6,9 @@
       "image": "",
       "characters": [
         1,
-        2
+        2,
+        6,
+        7
       ]
     },
     {
@@ -69,6 +71,18 @@
       "description": "description",
       "image": "imageUrl",
       "id": 5
+    },
+    {
+      "name": "test7",
+      "description": "test7",
+      "image": "test7",
+      "id": 6
+    },
+    {
+      "name": "Sam",
+      "description": "Sammy",
+      "image": "SamSam",
+      "id": 7
     }
   ]
 }
