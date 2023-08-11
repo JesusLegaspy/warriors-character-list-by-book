@@ -16,6 +16,7 @@ const MyCharacterProvider = ({ children }) => {
     else setCharacters([]);
   }
 
+  // todo: optimise
   const createCharacter = async (bookId, name, description, imageUrl = '') => {
     const newCharacter = await axios.post('http://localhost:3001/characters/', {
       name,
@@ -23,7 +24,7 @@ const MyCharacterProvider = ({ children }) => {
       image: imageUrl,
     }).then(data => data.data);
     const currentCharactersIds = await axios.get(`http://localhost:3001/books/${bookId}`).then(data => data.data.characters);
-    await editBookById(bookId, { characters: [...currentCharactersIds, newCharacter.id] });
+    await editBookById(bookId, { characters: [...(currentCharactersIds ?? []), newCharacter.id] });
     setCharacters([...characters, newCharacter]);
   }
 

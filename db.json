@@ -1,46 +1,5 @@
 {
-  "books": [
-    {
-      "id": 1,
-      "title": "Into the Wilds",
-      "image": "",
-      "characters": [
-        1,
-        2,
-        6,
-        7
-      ]
-    },
-    {
-      "title": "Alderheart and the chamber of secrets",
-      "image": "",
-      "characters": [
-        1,
-        2
-      ],
-      "id": 3
-    },
-    {
-      "title": "Meowstory 2",
-      "image": "",
-      "id": 5
-    },
-    {
-      "title": "The Oven",
-      "image": "",
-      "id": 7
-    },
-    {
-      "title": "Testing",
-      "image": "",
-      "id": 8
-    },
-    {
-      "title": "Rover",
-      "image": "",
-      "id": 9
-    }
-  ],
+  "books": [],
   "characters": [
     {
       "id": 1,
@@ -73,16 +32,22 @@
       "id": 5
     },
     {
-      "name": "test7",
-      "description": "test7",
-      "image": "test7",
+      "name": "test72",
+      "description": "test72",
+      "image": "test73",
       "id": 6
     },
     {
-      "name": "Sam",
-      "description": "Sammy",
-      "image": "SamSam",
+      "name": "What",
+      "description": "whaaat",
+      "image": "whaaaaat",
       "id": 7
+    },
+    {
+      "name": "test",
+      "description": "test",
+      "image": "test",
+      "id": 8
     }
   ]
 }
